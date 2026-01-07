@@ -1,131 +1,131 @@
 # Amazon Scraper
 
-[![Promo](https://github.com/luminati-io/Amazon-scraper/blob/main/images/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.com/products/web-scraper/amazon?promo=github15) 
+[![Promo](https://github.com/luminati-io/Amazon-scraper/blob/main/images/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.co.kr/products/web-scraper/amazon?promo=github15) 
 
 ## Table of Contents
 
-- [Free Amazon Scraper](#free-amazon-scraper)
-   - [Prerequisites](#prerequisites)
-   - [Quick Setup](#quick-setup)
-   - [How to Scrape Amazon Data](#how-to-scrape-amazon-data)
-   - [Output](#output)
-- [Challenges When Scraping Amazon Data](#challenges-when-scraping-amazon-data)
-- [Solution: Bright Data Amazon Scraper API](#solution-bright-data-amazon-scraper-api)
-- [Amazon Scraper API in Action](#amazon-scraper-api-in-action)
-   - [Customize Data Collection with API Parameters](#customize-data-collection-with-api-parameters)
-   - [Amazon Product Data](#amazon-product-data)
-   - [Amazon Reviews Data](#amazon-reviews-data)
-   - [Amazon Products Search](#amazon-products-search)
-   - [Amazon Sellers Info](#amazon-sellers-info)
-   - [Amazon Products by Best Sellers](#amazon-products-by-best-sellers)
-   - [Amazon Products by Category URL](#amazon-products-by-category-url)
-   - [Amazon Products by Keyword](#amazon-products-by-keyword)
-   - [Amazon Products Global Dataset](#amazon-products-global-dataset)
-   - [Amazon Products Global Dataset - Discover by Category URL](#amazon-products-global-dataset---discover-by-category-url)
-   - [Amazon Products Global Dataset - Discover by Keywords](#amazon-products-global-dataset---discover-by-keywords)
+- [무료 Amazon Scraper](#free-amazon-scraper)
+   - [사전 요구 사항](#prerequisites)
+   - [빠른 설정](#quick-setup)
+   - [Amazon 데이터를 スクレイピング하는 방법](#how-to-scrape-amazon-data)
+   - [출력](#output)
+- [Amazon 데이터를 スクレイピング할 때의 과제](#challenges-when-scraping-amazon-data)
+- [솔루션: Bright Data Amazon Scraper API](#solution-bright-data-amazon-scraper-api)
+- [Amazon Scraper API 실제 사용 예](#amazon-scraper-api-in-action)
+   - [API パラメータ로 데이터 수집 사용자 지정](#customize-data-collection-with-api-parameters)
+   - [Amazon 제품 데이터](#amazon-product-data)
+   - [Amazon 리뷰 데이터](#amazon-reviews-data)
+   - [Amazon 제품 검색](#amazon-products-search)
+   - [Amazon 판매자 정보](#amazon-sellers-info)
+   - [베스트셀러 기준 Amazon 제품](#amazon-products-by-best-sellers)
+   - [카테고리 URL 기준 Amazon 제품](#amazon-products-by-category-url)
+   - [키워드 기준 Amazon 제품](#amazon-products-by-keyword)
+   - [Amazon 제품 글로벌 データセット](#amazon-products-global-dataset)
+   - [Amazon 제품 글로벌 データセット - 카테고리 URL로 발견](#amazon-products-global-dataset---discover-by-category-url)
+   - [Amazon 제품 글로벌 データセット - 키워드로 발견](#amazon-products-global-dataset---discover-by-keywords)
 
 
 ## Free Amazon Scraper
-Use this free tool to extract Amazon product data directly from search results pages. Easily retrieve product titles, prices, ratings, reviews, and more with just a few simple steps.
+이 무료 도구를 사용하여 검색 결과 페이지에서 Amazon 제품 데이터를 직접 추출할 수 있습니다. 몇 가지 간단한 단계만으로 제품 제목, 가격, 평점, 리뷰 등 다양한 정보를 손쉽게 가져올 수 있습니다.
 
 ### Prerequisites
-- Python 3.11 or higher.
-- Install the necessary dependencies (see steps below).
+- Python 3.11 이상.
+- 필요한 의존성을 설치합니다(아래 단계 참조).
 
 ### Quick Setup
-1. Open your terminal and navigate to this project’s directory.
-2. Run the following command to install dependencies:
+1. 터미널을 열고 이 프로젝트 디렉터리로 이동합니다.
+2. 다음 명령을 실행하여 의존성을 설치합니다:
    
     ```bash
     pip install -r requirements.txt
     ```
 
 ### How to Scrape Amazon Data
-To start scraping Amazon data, simply provide a search query. You can also specify the Amazon domain and the number of pages you want to scrape.
+Amazon 데이터를 スクレイピング하려면 검색 쿼리만 제공하면 됩니다. 또한 Amazon 도메인과 スクレイピング할 페이지 수를 지정할 수도 있습니다.
 
 #### Command:
 ```bash
 python main.py "<your_search_query>" --domain="<amazon_domain>" --pages=<number_of_pages>
 ```
-- `<your_search_query>`: The search keywords (e.g., "coffee maker").
-- `<amazon_domain>`: The Amazon domain you want to scrape (default: `com` for Amazon US).
-- `<number_of_pages>`: Number of pages to scrape (optional, defaults to scraping all available pages).
+- `<your_search_query>`: 검색 키워드(예: "coffee maker").
+- `<amazon_domain>`: スクレイピング할 Amazon 도메인(기본값: Amazon US의 `com`).
+- `<number_of_pages>`: スクレイピング할 페이지 수(선택 사항이며, 기본값은 사용 가능한 모든 페이지를 スクレイピング합니다).
 
 #### Example:
-To scrape data for "coffee maker" on the Amazon US domain and scrape the first 3 pages of results.
-Here's the command:
+Amazon US 도메인에서 "coffee maker" 데이터를 スクレイピング하고 결과의 처음 3페이지를 スクレイ핑하려면 다음 명령을 사용합니다.
+명령은 다음과 같습니다:
 ```bash
 python main.py "coffee maker" --domain="com" --pages=3
 ```
 ### Output
-After scraping, the extracted data will be saved as `amazon_data.csv` in the project directory. The CSV file will include the following details:
-- **Name:** Product title.
-- **Current Price:** Product price (empty if out of stock).
-- **Rating:** Average customer rating.
-- **Reviews:** Total number of customer reviews.
+スクレイピング 후 추출된 데이터는 프로젝트 디렉터리에 `amazon_data.csv`로 저장됩니다. CSV 파일에는 다음 세부 정보가 포함됩니다:
+- **Name:** 제품 제목.
+- **Current Price:** 제품 가격(품절인 경우 비어 있음).
+- **Rating:** 평균 고객 평점.
+- **Reviews:** 고객 리뷰 총 개수.
 - **ASIN:** Amazon Standard Identification Number.
-- **Link:** Direct URL to the product page on Amazon.
+- **Link:** Amazon의 제품 페이지로 바로 가는 URL.
 
-Here's how the data will look:
+데이터는 다음과 같이 표시됩니다:
 
 <img width="700" alt="bright-data-amazon_csv_data" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-amazon_csv_data.png">
 
 ## Challenges When Scraping Amazon Data
-Scraping Amazon data isn't always straightforward. Here are a few challenges that you might encounter:
-1. **Advanced Anti-Bot Measures:** Amazon uses CAPTCHAs, invisible bot detection techniques, and behavioral analysis (like tracking mouse movements) to block bots.
-2. **Frequent Page Structure Updates:** Amazon frequently changes its HTML structure, IDs, and class names, making it necessary to regular updates to scrapers to align with the new page layout.
-3. **High Resource Consumption:** Scraping JavaScript-heavy pages with tools like Playwright or Selenium can consume significant system resources. Handling dynamic content and running multiple browser instances can slow down performance, especially when scraping large amounts of data.
+Amazon 데이터를 スクレイピング하는 일은 항상 간단하지는 않습니다. 다음은 마주칠 수 있는 몇 가지 과제입니다:
+1. **고도화된 アンチボット 조치:** Amazon은 CAPTCHA, 보이지 않는 봇 탐지 기법, 행동 분석(예: 마우스 움직임 추적 등)을 사용하여 봇을 차단합니다.
+2. **빈번한 페이지 구조 업데이트:** Amazon은 HTML 구조, ID, class 이름을 자주 변경하므로 새로운 페이지 레이아웃에 맞추기 위해 スクレイ퍼를 정기적으로 업데이트해야 합니다.
+3. **높은 리소스 사용량:** Playwright 또는 Selenium 같은 도구로 JavaScript 비중이 큰 페이지를 スクレイピング하면 상당한 시스템 리소스를 소모할 수 있습니다. 동적 콘텐츠를 처리하고 여러 브라우저 인스턴스를 실행하면 특히 대량의 데이터를 スクレイピング할 때 성능이 저하될 수 있습니다.
 
-Below is an example of what happens when Amazon detects automated scraping attempts:
+아래는 Amazon이 자동화된 スクレイピング 시도를 감지했을 때 발생하는 예시입니다:
 
 <img src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/Amazon%20Blocked.png" alt="Amazon Blocked" width="700"/>
 
-As shown above, Amazon blocked the request to prevent further data scraping — a common issue that many scrapers encounter.
+위에서 보듯이 Amazon은 추가 데이터 スクレイピング을 방지하기 위해 리クレイスト를 차단했습니다. 이는 많은 スクレイ퍼가 겪는 일반적인 문제입니다.
 
 ## Solution: Bright Data Amazon Scraper API
-The [Bright Data Amazon Scraper API](https://brightdata.com/products/web-scraper/amazon) is the ultimate solution for scraping Amazon product data at scale. Here’s why:
+[Bright Data Amazon Scraper API](https://brightdata.co.kr/products/web-scraper/amazon)는 대규모로 Amazon 제품 데이터를 スクレイピング하기 위한 궁극적인 솔루션입니다. 그 이유는 다음과 같습니다:
 
-- **No Infrastructure Management**: No need to handle proxies or unblocking systems.
-- **Geo-Location Scraping**: Scrape from any geographical region.
-- **Global IP Coverage**: Access [over 72 million real user IPs](https://brightdata.com/proxy-types/residential-proxies) in [195 countries](https://brightdata.com/locations) with 99.99% uptime.
-- **Flexible Data Delivery**: Get data via Amazon S3, Google Cloud, Azure, Snowflake, or SFTP in formats like JSON, NDJSON, CSV, and `.gz`.
-- **Privacy Compliance**: Fully complies with GDPR, CCPA, and other data protection laws.
-- **24/7 Support**: Dedicated support team is available around the clock to assist with any API-related questions or issues.
+- **インフラ 관리 불필요**: プロキシ 또는 언블로킹 시스템을 처리할 필요가 없습니다.
+- **ジオロケーション スクレイピング**: 어떤 지리적 지역에서도 スクレイピング할 수 있습니다.
+- **글로벌 IP 커버리지**: 99.99% 업타임으로 [195개 국가](https://brightdata.co.kr/locations)의 [7,200만 개 이상의 실제 사용자 IP](https://brightdata.co.kr/proxy-types/residential-proxies)에 액세스할 수 있습니다.
+- **유연한 데이터 전달**: Amazon S3, Google Cloud, Azure, Snowflake 또는 SFTP를 통해 JSON, NDJSON, CSV, `.gz` 등의 형식으로 데이터를 받을 수 있습니다.
+- **프라이버시 준수**: GDPR, CCPA 및 기타 데이터 보호 법률을 완전히 준수합니다.
+- **24/7 지원**: 전담 지원 팀이 24시간 연중무휴로 API 관련 질문 또는 문제를 지원합니다.
 
-You also get **20 free API calls** to test the product and see how it fits your needs.
+또한 제품을 테스트하고 요구 사항에 얼마나 적합한지 확인할 수 있도록 **무료 API 호출 20회**를 제공합니다.
 
 ## Amazon Scraper API in Action
 
-> For a detailed guide on setting up the Amazon Scraper API, check our [Step-by-Step Setup Guide](https://github.com/luminati-io/Amazon-scraper/blob/main/scraper_api_setup.md#amazon-reviews).
+> Amazon Scraper API 설정에 대한 자세한 가이드는 [Step-by-Step Setup Guide](https://github.com/luminati-io/Amazon-scraper/blob/main/scraper_api_setup.md#amazon-reviews)를 확인하십시오.
 
 ### Customize Data Collection with API Parameters
 
-Use the following API parameters to customize your data collection:
+다음 API パラメータ를 사용하여 데이터 수집을 사용자 지정할 수 있습니다:
 
 | **Parameter**       | **Type**   | **Description**                                                                                   | **Example**                                           |
 |---------------------|------------|---------------------------------------------------------------------------------------------------|-------------------------------------------------------|
-| `limit`             | `integer`  | Limit the number of results returned for each input.                                            | `limit=10`                                           |
-| `include_errors`    | `boolean`   | Include an error report in the output for troubleshooting.                                      | `include_errors=true`                                |
-| `notify`            | `url`      | URL where a notification is sent once the collection completes.                                  | `notify=https://notify-me.com/`                      |
-| `format`            | `enum`     | Format for data delivery. Supported formats: JSON, NDJSON, JSONL, CSV.                          | `format=json`                                        |
+| `limit`             | `integer`  | 각 입력에 대해 반환되는 결과 수를 제한합니다.                                            | `limit=10`                                           |
+| `include_errors`    | `boolean`   | 문제 해결을 위해 출력에 오류 보고서를 포함합니다.                                      | `include_errors=true`                                |
+| `notify`            | `url`      | 수집이 완료되면 알림이 전송되는 URL입니다.                                  | `notify=https://notify-me.com/`                      |
+| `format`            | `enum`     | 데이터 전달 형식입니다. 지원 형식: JSON, NDJSON, JSONL, CSV.                          | `format=json`                                        |
 
-💡Additional delivery methods: You can choose to deliver the data via [webhook](https://docs.brightdata.com/scraping-automation/web-data-apis/web-scraper-api/overview#via-webhook) or through the [API](https://docs.brightdata.com/scraping-automation/web-data-apis/web-scraper-api/overview#via-api).
+💡추가 전달 방법: [webhook](https://docs.brightdata.com/scraping-automation/web-data-apis/web-scraper-api/overview#via-webhook)을 통해 또는 [API](https://docs.brightdata.com/scraping-automation/web-data-apis/web-scraper-api/overview#via-api)를 통해 데이터를 전달하도록 선택할 수 있습니다.
 
 ### Amazon Product Data
-Collect detailed product data from Amazon by providing a product URL.
+제품 URL을 제공하여 Amazon의 상세 제품 데이터를 수집합니다.
 
 <img width="700" alt="bright-data-web-scraper-api-amazon-product-data" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-amazon-product-data.png">
 
 #### Key Input Parameters:
 | Parameter | Type   | Description                    | Required |
 |-----------|--------|--------------------------------|----------|
-| `url`       | `string` | The Amazon product URL to scrape data | Yes      |
+| `url`       | `string` | 데이터를 スクレイピング할 Amazon 제품 URL | Yes      |
 
 #### Performance:
-- Average response time per input: 13 seconds
+- 입력당 평균 응답 시간: 13초
 
 #### Sample Output Data:
-Here’s an example of the output you will receive after scraping Amazon product data:
+Amazon 제품 데이터를 スクレイピング한 후 받게 되는 출력의 예시는 다음과 같습니다:
 ```json
 {
     "url": "https://www.amazon.com/KitchenAid-Protective-Dishwasher-Stainless-8-72-Inch/dp/B07PZF3QS3",
@@ -157,7 +157,7 @@ Here’s an example of the output you will receive after scraping Amazon product
 }
 ```
 #### Code Example:
-Below is a Python script that triggers the Amazon product data collection and stores the results in a JSON file:
+아래는 Amazon 제품 데이터 수집을 트리거하고 결과를 JSON 파일에 저장하는 Python 스크립트입니다:
 ```python
 import json
 import requests
@@ -240,10 +240,10 @@ if __name__ == "__main__":
         if data:
             store_data(data)
 ```
-You can view the full output by downloading [this sample JSON file](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_products_data.json).
+전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_products_data.json)을 다운로드하여 확인할 수 있습니다.
 
 ### Amazon Reviews Data
-Collect Amazon reviews by providing the product URL along with specific parameters like time frames, keywords, and the number of reviews to scrape.
+제품 URL과 함께 기간, 키워드, スクレイピング할 리뷰 수 같은 특정 パラメータ를 제공하여 Amazon 리뷰를 수집합니다.
 
 <img width="700" alt="bright-data-web-scraper-api-amazon-product-reviews" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-amazon-product-reviews.png">
 
@@ -251,16 +251,16 @@ Collect Amazon reviews by providing the product URL along with specific paramete
 #### Key Input Parameters:
 | **Parameter**       | **Type**  | **Description**                                                                 | **Required** |
 |---------------------|-----------|---------------------------------------------------------------------------------|--------------|
-| `url`               | `string`  | The Amazon product URL from which to scrape reviews.                             | Yes          |
-| `days_range`        | `number`  | The number of past days to consider when collecting reviews (leave blank for no limit). | No           |
-| `keyword`           | `string`  | Filter reviews by a specific keyword.                            | No           |
-| `num_of_reviews`    | `number`  | The number of reviews to scrape (if not provided, it will scrape all available reviews). | No           |
+| `url`               | `string`  | 리뷰를 スクレイピング할 Amazon 제품 URL입니다.                             | Yes          |
+| `days_range`        | `number`  | 리뷰 수집 시 고려할 과거 일수(제한이 없으면 비워 둡니다). | No           |
+| `keyword`           | `string`  | 특정 키워드로 리뷰를 필터링합니다.                            | No           |
+| `num_of_reviews`    | `number`  | スクレイピング할 리뷰 수(제공하지 않으면 사용 가능한 모든 리뷰를 スクレイピング합니다). | No           |
 
 #### Performance:
-- Average response time per input: 1 minute 1 second
+- 입력당 평균 응답 시간: 1분 1초
 
 #### Sample Output Data:
-Here’s an example of the output you’ll receive when scraping Amazon reviews:
+Amazon 리뷰를 スクレイピング할 때 받게 되는 출력의 예시는 다음과 같습니다:
 ```json
 {
     "url": "https://www.amazon.com/RORSOU-R10-Headphones-Microphone-Lightweight/dp/B094NC89P9/",
@@ -283,7 +283,7 @@ Here’s an example of the output you’ll receive when scraping Amazon reviews:
 }
 ```
 #### Code Example:
-Below is a Python script that triggers the Amazon review data collection and stores the results in a JSON file:
+아래는 Amazon 리뷰 데이터 수집을 트리거하고 결과를 JSON 파일에 저장하는 Python 스크립트입니다:
 ```python
 import json
 import requests
@@ -369,25 +369,25 @@ if __name__ == "__main__":
         if data:
             store_data(data)
 ```
-You can view the full output by downloading [this sample JSON file](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_reviews_data.json).
+전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_reviews_data.json)을 다운로드하여 확인할 수 있습니다.
 
 ### Amazon Products Search
-Discover Amazon products by providing a keyword for your search.
+검색을 위한 키워드를 제공하여 Amazon 제품을 찾습니다.
 
 <img width="700" alt="bright-data-web-scraper-api-keyword-search" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-keyword-search.png">
 
 #### Key Input Parameters:
 | Parameter         | Type    | Description                                 | Required |
 |-------------------|---------|---------------------------------------------|----------|
-| `keyword`         | string  | The keyword used to search for products      | Yes      |
-| `url`             | string  | The domain URL to search within              | Yes      |
-| `pages_to_search` | number  | The number of pages to search through        | No       |
+| `keyword`         | string  | 제품을 검색하는 데 사용하는 키워드      | Yes      |
+| `url`             | string  | 검색할 도메인 URL              | Yes      |
+| `pages_to_search` | number  | 검색할 페이지 수        | No       |
 
 #### Performance:
-- Average response time per input: 1 second
+- 입력당 평균 응답 시간: 1초
 
 #### Sample Output Data:
-Here’s an example of the output you’ll receive after performing a keyword search for products on Amazon:
+Amazon에서 제품 키워드 검색을 수행한 뒤 받게 되는 출력의 예시는 다음과 같습니다:
 ```json
 {
     "asin": "B08H75RTZ8",
@@ -419,7 +419,7 @@ Here’s an example of the output you’ll receive after performing a keyword se
 }
 ```
 #### Code Example:
-Below is a Python script that triggers an Amazon product search based on a keyword and stores the results in a JSON file:
+아래는 키워드를 기반으로 Amazon 제품 검색을 트리거하고 결과를 JSON 파일에 저장하는 Python 스크립트입니다:
 ```python
 import json
 import requests
@@ -500,10 +500,10 @@ if __name__ == "__main__":
         if data:
             store_data(data)
 ```
-You can view the full output by downloading [this sample JSON file](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_keywords_data.json).
+전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_keywords_data.json)을 다운로드하여 확인할 수 있습니다.
 
 ### Amazon Sellers Info
-Discover detailed information about Amazon sellers by providing their specific seller URL.
+특정 판매자 URL을 제공하여 Amazon 판매자에 대한 상세 정보를 확인합니다.
 
 <img width="700" alt="bright-data-web-scraper-api-seller-info" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-seller-info.png">
 
@@ -511,13 +511,13 @@ Discover detailed information about Amazon sellers by providing their specific s
 #### Key Input Parameters:
 | **Parameter** | **Type**  | **Description**                    | **Required** |
 |---------------|-----------|------------------------------------|--------------|
-| `url`         | `string`  | The Amazon seller URL              | Yes          |
+| `url`         | `string`  | Amazon 판매자 URL              | Yes          |
 
 #### Performance:
-- Average response time per input: 1 second
+- 입력당 평균 응답 시간: 1초
 
 #### Sample Output Data:
-Below is an example of the output you will receive after scraping seller information:
+판매자 정보를 スクレイピング한 후 받게 되는 출력의 예시는 다음과 같습니다:
 ```json
 {
     "input": {
@@ -560,7 +560,7 @@ Below is an example of the output you will receive after scraping seller informa
 ```
 
 #### Code Example:
-Here’s a Python script that triggers the collection of Amazon seller data and stores the results in a JSON file:
+다음은 Amazon 판매자 데이터 수집을 트리거하고 결과를 JSON 파일에 저장하는 Python 스크립트입니다:
 ```python
 import json
 import requests
@@ -639,10 +639,10 @@ if __name__ == "__main__":
             store_data(data)
 ```
 
-You can view the full output by downloading [this sample JSON file](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_seller_data.json).
+전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_seller_data.json)을 다운로드하여 확인할 수 있습니다.
 
 ### Amazon Products by Best Sellers
-Discover top-selling products on Amazon by providing the URL for the Best Sellers category.
+베스트셀러 카테고리의 URL을 제공하여 Amazon에서 가장 많이 판매되는 제품을 확인합니다.
 
 <img width="700" alt="bright-data-web-scraper-api-amazon-best-sellers" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-amazon-best-sellers.png">
 
@@ -651,13 +651,13 @@ Discover top-selling products on Amazon by providing the URL for the Best Seller
 
 | Parameter       | Type     | Description                                    | Required |
 |-----------------|----------|------------------------------------------------|----------|
-| `category_url`  | `string` | The Best Sellers category URL from which to scrape | Yes      |
+| `category_url`  | `string` | 데이터를 スクレイピング할 베스트셀러 카테고리 URL | Yes      |
 
 #### Performance:
-- Average response time per input: 6 minutes 49 seconds
+- 입력당 평균 응답 시간: 6분 49초
 
 #### Sample Output Data:
-Here’s an example of the output you will receive after scraping Amazon’s Best Sellers data:
+Amazon의 베스트셀러 데이터를 スクレイピング한 후 받게 되는 출력 예시는 다음과 같습니다:
 
 ```json
 {
@@ -701,7 +701,7 @@ Here’s an example of the output you will receive after scraping Amazon’s Bes
 }
 ```
 #### Code Example:
-Below is a Python script that triggers the collection of Amazon Best Sellers data and stores the results in a JSON file:
+아래는 Amazon 베스트셀러 데이터 수집을 트리거하고 결과를 JSON 파일에 저장하는 Python 스크립트입니다:
 ```python
 import json
 import requests
@@ -776,25 +776,25 @@ if __name__ == "__main__":
         if data:
             store_data(data)
 ```
-You can view the full output by downloading [this sample JSON file](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_bestsellers.json).
+전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_bestsellers.json)을 다운로드하여 확인할 수 있습니다.
 
 ### Amazon Products by Category URL
-Discover and collect Amazon product data by providing a specific category URL. Customize your search with sorting options and location-based filters.
+특정 카테고리 URL을 제공하여 Amazon 제품 데이터를 발견하고 수집합니다. 정렬 옵션과 위치 기반 필터로 검색을 사용자 지정할 수 있습니다.
 
 <img width="700" alt="bright-data-web-scraper-api-discover-by-category-url" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-discover-by-category-url.png">
 
 #### Key Input Parameters:
 | **Parameter** | **Type**  | **Description**                              | **Required** |
 |---------------|-----------|----------------------------------------------|--------------|
-| `url`         | `string`  | The category URL to scrape products from      | Yes          |
-| `sort_by`     | `string`  | Criteria for sorting the product results      | No           |
-| `zipcode`     | `string`  | Zip code for location-specific product results| No           |
+| `url`         | `string`  | 제품을 スクレイピング할 카테고리 URL      | Yes          |
+| `sort_by`     | `string`  | 제품 결과 정렬 기준      | No           |
+| `zipcode`     | `string`  | 위치별 제품 결과를 위한 우편번호| No           |
 
 #### Performance:
-- Average response time per input: 16 minutes 16 seconds
+- 입력당 평균 응답 시간: 16분 16초
 
 #### Sample Output Data:
-Below is an example of the data you’ll receive after scraping products from a specified category:
+지정한 카테고리에서 제품을 スクレイピング한 후 받게 되는 데이터 예시는 다음과 같습니다:
 ```json
 {
     "title": "Quilted Makeup Bag Floral Makeup Bag Cotton Makeup Bag",
@@ -838,7 +838,7 @@ Below is an example of the data you’ll receive after scraping products from a 
 ```
 
 #### Code Example:
-Below is a Python script that triggers the collection of products from a specified category URL and stores the data in a JSON file:
+아래는 지정한 카테고리 URL에서 제품 수집을 트리거하고 데이터를 JSON 파일에 저장하는 Python 스크립트입니다:
 ```python
 import json
 import requests
@@ -926,23 +926,23 @@ if __name__ == "__main__":
             store_data(data)
 ```
 
-You can view the full output by downloading [this sample JSON file](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_discover_by_category_url.json).
+전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_discover_by_category_url.json)을 다운로드하여 확인할 수 있습니다.
 
 ### Amazon Products by Keyword
-Discover products by using specific keywords.
+특정 키워드를 사용하여 제품을 발견합니다.
 
 <img width="700" alt="bright-data-web-scraper-api-discover-by-keyword" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-discover-by-keyword.png">
 
 #### Key Input Parameters:
 | **Parameter** | **Type**  | **Description**                   | **Required** |
 |---------------|-----------|-----------------------------------|--------------|
-| `keyword`     | `string`  | The keyword to search for products | Yes          |
+| `keyword`     | `string`  | 제품을 검색할 키워드 | Yes          |
 
 #### Performance:
-- Average response time per input: 2 minutes 46 seconds
+- 입력당 평균 응답 시간: 2분 46초
 
 #### Sample Output Data:
-Here’s an example of the output you will receive after searching for products using a keyword:
+키워드를 사용하여 제품을 검색한 후 받게 되는 출력 예시는 다음과 같습니다:
 
 ```json
 {
@@ -976,7 +976,7 @@ Here’s an example of the output you will receive after searching for products 
 }
 ```
 #### Code Example:
-Below is a Python script that triggers the collection of Amazon products based on a keyword and stores the results in a JSON file:
+아래는 키워드를 기반으로 Amazon 제품 수집을 트리거하고 결과를 JSON 파일에 저장하는 Python 스크립트입니다:
 ```python
 import json
 import requests
@@ -1051,10 +1051,10 @@ if __name__ == "__main__":
             store_data(data)
 ```
 
-You can view the full output by downloading [this sample JSON file](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_keyword_data.json).
+전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_keyword_data.json)을 다운로드하여 확인할 수 있습니다.
 
 ### Amazon Products Global Dataset
-Collect product data across all major Amazon domains by providing a URL.
+URL을 제공하여 주요 Amazon 도메인 전반에서 제품 데이터를 수집합니다.
 
 <img width="700" alt="bright-data-web-scraper-api-amazon-product-global-dataset" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-amazon-product-global-dataset.png">
 
@@ -1062,13 +1062,13 @@ Collect product data across all major Amazon domains by providing a URL.
 #### Key Input Parameters:
 | **Parameter** | **Type**  | **Description**           | **Required** |
 |---------------|-----------|---------------------------|--------------|
-| `url`         | `string`  | The Amazon product URL     | Yes          |
+| `url`         | `string`  | Amazon 제품 URL     | Yes          |
 
 #### Performance:
-- **Average response time per input**: Less than 1 second
+- **입력당 평균 응답 시간**: 1초 미만
 
 #### Sample Output Data:
-Here’s an example of the output you will receive after collecting product data:
+제품 데이터를 수집한 후 받게 되는 출력 예시는 다음과 같습니다:
 
 ```json
 {
@@ -1128,7 +1128,7 @@ Here’s an example of the output you will receive after collecting product data
 }
 ```
 #### Code Example:
-Below is a Python script that triggers the collection of products across all major Amazon domains and stores the results in a JSON file:
+아래는 주요 Amazon 도메인 전반에서 제품 수집을 트리거하고 결과를 JSON 파일에 저장하는 Python 스크립트입니다:
 ```python
 import json
 import requests
@@ -1214,10 +1214,10 @@ if __name__ == "__main__":
             store_data(data)
 ```
 
-You can view the full output by downloading [this sample JSON file](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_products_global_dataset.json).
+전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_products_global_dataset.json)을 다운로드하여 확인할 수 있습니다.
 
 ### Amazon Products Global Dataset - Discover by Category URL
-Discover products by providing a specific category URL.
+특정 카테고리 URL을 제공하여 제품을 발견합니다.
 
 <img width="700" alt="bright-data-web-scraper-api-amazon-product-global-category-url" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-amazon-product-global-category-url.png">
 
@@ -1225,15 +1225,15 @@ Discover products by providing a specific category URL.
 #### Key Input Parameters:
 | **Parameter** | **Type** | **Description**                               | **Required** |
 |---------------|----------|-----------------------------------------------|--------------|
-| `url`         | `string` | The category URL from which to scrape products | Yes          |
+| `url`         | `string` | 제품을 スクレイピング할 카테고리 URL | Yes          |
 | `sort_by`     | `string` |Criteria for sorting the results               | No           |
-| `zipcode`     | `string` | Zip code for location-specific results         | No           |
+| `zipcode`     | `string` | 위치별 결과를 위한 우편번호         | No           |
 
 #### Performance:
-- Average response time per input: 3 minutes 57 seconds
+- 입력당 평균 응답 시간: 3분 57초
 
 #### Sample Output Data:
-Here’s an example of the output you will receive after collecting product data:
+제품 데이터를 수집한 후 받게 되는 출력 예시는 다음과 같습니다:
 ```json
 {
     "title": "De'Longhi Stilosa EC230.BK, Traditional Barista Pump Espresso Machine, Espresso and Cappuccino, 2 cups, Black",
@@ -1275,7 +1275,7 @@ Here’s an example of the output you will receive after collecting product data
 }
 ```
 #### Code Example:
-Below is a Python script that triggers the collection of products by category URL and stores the results in a JSON file:
+아래는 카테고리 URL로 제품 수집을 트리거하고 결과를 JSON 파일에 저장하는 Python 스크립트입니다:
 ```python
 import json
 import requests
@@ -1354,25 +1354,25 @@ if __name__ == "__main__":
         if data:
             store_data(data)
 ```
-You can view the full output by downloading [this sample JSON file](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_product_global_category_url.json).
+전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_product_global_category_url.json)을 다운로드하여 확인할 수 있습니다.
 
 ### Amazon Products Global Dataset - Discover by Keywords
-Discover products by using specific keywords across Amazon domains.
+Amazon 도메인 전반에서 특정 키워드를 사용하여 제품을 발견합니다.
 
 <img width="700" alt="bright-data-web-scraper-api-amazon_global_dataset_by_keyword" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-amazon_global_dataset_by_keyword.png">
 
 #### Key Input Parameters:
 | **Parameter**      | **Type**   | **Description**                            | **Required** |
 |--------------------|------------|--------------------------------------------|--------------|
-| `keywords`         | `string`   | The keyword to search for products         | Yes          |
-| `domain`           | `string`   | Amazon domain to search within             | Yes          |
-| `pages_to_search`  | `number`   | Number of pages to search                  | No           |
+| `keywords`         | `string`   | 제품을 검색할 키워드         | Yes          |
+| `domain`           | `string`   | 검색할 Amazon 도메인             | Yes          |
+| `pages_to_search`  | `number`   | 검색할 페이지 수                  | No           |
 
 #### Performance:
-- Average response time per input: 56 seconds
+- 입력당 평균 응답 시간: 56초
 
 #### Sample Output Data:
-Here’s an example of the output you will receive after performing a keyword search for products:
+키워드 검색으로 제품을 검색한 후 받게 되는 출력 예시는 다음과 같습니다:
 ```json
 {
     "title": "Mitutoyo 500-197-30 Electronic Digital Caliper AOS Absolute Scale Digital Caliper, 0 to 8\"/0 to 200mm Measuring Range, 0.0005\"/0.01mm Resolution",
@@ -1416,7 +1416,7 @@ Here’s an example of the output you will receive after performing a keyword se
 }
 ```
 #### Code Example:
-Below is a Python script that triggers the collection of products by keyword search and stores the results in a JSON file:
+아래는 키워드 검색으로 제품 수집을 트리거하고 결과를 JSON 파일에 저장하는 Python 스크립트입니다:
 ```python
 import json
 import requests
@@ -1511,4 +1511,4 @@ if __name__ == "__main__":
         if data:
             store_data(data)
 ```
-You can view the full output by downloading [this sample JSON file](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_global_dataset_by_keyword.json).
+전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_global_dataset_by_keyword.json)을 다운로드하여 확인할 수 있습니다.
