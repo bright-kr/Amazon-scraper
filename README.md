@@ -1,6 +1,6 @@
 # Amazon Scraper
 
-[![Promo](https://github.com/luminati-io/Amazon-scraper/blob/main/images/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.co.kr/products/web-scraper/amazon?promo=github15) 
+[![Promo](https://github.com/bright-kr/Amazon-scraper/blob/main/images/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.co.kr/products/web-scraper/amazon?promo=github15) 
 
 ## Table of Contents
 
@@ -68,7 +68,7 @@ python main.py "coffee maker" --domain="com" --pages=3
 
 데이터는 다음과 같이 표시됩니다:
 
-<img width="700" alt="bright-data-amazon_csv_data" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-amazon_csv_data.png">
+<img width="700" alt="bright-data-amazon_csv_data" src="https://github.com/bright-kr/Amazon-scraper/blob/main/images/bright-data-amazon_csv_data.png">
 
 ## Challenges When Scraping Amazon Data
 Amazon 데이터를 スクレイピング하는 일은 항상 간단하지는 않습니다. 다음은 마주칠 수 있는 몇 가지 과제입니다:
@@ -78,7 +78,7 @@ Amazon 데이터를 スクレイピング하는 일은 항상 간단하지는 �
 
 아래는 Amazon이 자동화된 スクレイピング 시도를 감지했을 때 발생하는 예시입니다:
 
-<img src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/Amazon%20Blocked.png" alt="Amazon Blocked" width="700"/>
+<img src="https://github.com/bright-kr/Amazon-scraper/blob/main/images/Amazon%20Blocked.png" alt="Amazon Blocked" width="700"/>
 
 위에서 보듯이 Amazon은 추가 데이터 スクレイピング을 방지하기 위해 리クレイスト를 차단했습니다. 이는 많은 スクレイ퍼가 겪는 일반적인 문제입니다.
 
@@ -96,7 +96,7 @@ Amazon 데이터를 スクレイピング하는 일은 항상 간단하지는 �
 
 ## Amazon Scraper API in Action
 
-> Amazon Scraper API 설정에 대한 자세한 가이드는 [Step-by-Step Setup Guide](https://github.com/luminati-io/Amazon-scraper/blob/main/scraper_api_setup.md#amazon-reviews)를 확인하십시오.
+> Amazon Scraper API 설정에 대한 자세한 가이드는 [Step-by-Step Setup Guide](https://github.com/bright-kr/Amazon-scraper/blob/main/scraper_api_setup.md#amazon-reviews)를 확인하십시오.
 
 ### Customize Data Collection with API Parameters
 
@@ -114,7 +114,7 @@ Amazon 데이터를 スクレイピング하는 일은 항상 간단하지는 �
 ### Amazon Product Data
 제품 URL을 제공하여 Amazon의 상세 제품 데이터를 수집합니다.
 
-<img width="700" alt="bright-data-web-scraper-api-amazon-product-data" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-amazon-product-data.png">
+<img width="700" alt="bright-data-web-scraper-api-amazon-product-data" src="https://github.com/bright-kr/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-amazon-product-data.png">
 
 #### Key Input Parameters:
 | Parameter | Type   | Description                    | Required |
@@ -240,12 +240,12 @@ if __name__ == "__main__":
         if data:
             store_data(data)
 ```
-전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_products_data.json)을 다운로드하여 확인할 수 있습니다.
+전체 출력은 [이 샘플 JSON 파일](https://github.com/bright-kr/Amazon-scraper/blob/main/output_data/amazon_products_data.json)을 다운로드하여 확인할 수 있습니다.
 
 ### Amazon Reviews Data
 제품 URL과 함께 기간, 키워드, スクレイピング할 리뷰 수 같은 특정 パラメータ를 제공하여 Amazon 리뷰를 수집합니다.
 
-<img width="700" alt="bright-data-web-scraper-api-amazon-product-reviews" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-amazon-product-reviews.png">
+<img width="700" alt="bright-data-web-scraper-api-amazon-product-reviews" src="https://github.com/bright-kr/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-amazon-product-reviews.png">
 
 
 #### Key Input Parameters:
@@ -369,12 +369,12 @@ if __name__ == "__main__":
         if data:
             store_data(data)
 ```
-전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_reviews_data.json)을 다운로드하여 확인할 수 있습니다.
+전체 출력은 [이 샘플 JSON 파일](https://github.com/bright-kr/Amazon-scraper/blob/main/output_data/amazon_reviews_data.json)을 다운로드하여 확인할 수 있습니다.
 
 ### Amazon Products Search
 검색을 위한 키워드를 제공하여 Amazon 제품을 찾습니다.
 
-<img width="700" alt="bright-data-web-scraper-api-keyword-search" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-keyword-search.png">
+<img width="700" alt="bright-data-web-scraper-api-keyword-search" src="https://github.com/bright-kr/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-keyword-search.png">
 
 #### Key Input Parameters:
 | Parameter         | Type    | Description                                 | Required |
@@ -500,12 +500,12 @@ if __name__ == "__main__":
         if data:
             store_data(data)
 ```
-전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_keywords_data.json)을 다운로드하여 확인할 수 있습니다.
+전체 출력은 [이 샘플 JSON 파일](https://github.com/bright-kr/Amazon-scraper/blob/main/output_data/amazon_keywords_data.json)을 다운로드하여 확인할 수 있습니다.
 
 ### Amazon Sellers Info
 특정 판매자 URL을 제공하여 Amazon 판매자에 대한 상세 정보를 확인합니다.
 
-<img width="700" alt="bright-data-web-scraper-api-seller-info" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-seller-info.png">
+<img width="700" alt="bright-data-web-scraper-api-seller-info" src="https://github.com/bright-kr/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-seller-info.png">
 
 
 #### Key Input Parameters:
@@ -639,12 +639,12 @@ if __name__ == "__main__":
             store_data(data)
 ```
 
-전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_seller_data.json)을 다운로드하여 확인할 수 있습니다.
+전체 출력은 [이 샘플 JSON 파일](https://github.com/bright-kr/Amazon-scraper/blob/main/output_data/amazon_seller_data.json)을 다운로드하여 확인할 수 있습니다.
 
 ### Amazon Products by Best Sellers
 베스트셀러 카테고리의 URL을 제공하여 Amazon에서 가장 많이 판매되는 제품을 확인합니다.
 
-<img width="700" alt="bright-data-web-scraper-api-amazon-best-sellers" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-amazon-best-sellers.png">
+<img width="700" alt="bright-data-web-scraper-api-amazon-best-sellers" src="https://github.com/bright-kr/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-amazon-best-sellers.png">
 
 
 #### Key Input Parameters:
@@ -776,12 +776,12 @@ if __name__ == "__main__":
         if data:
             store_data(data)
 ```
-전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_bestsellers.json)을 다운로드하여 확인할 수 있습니다.
+전체 출력은 [이 샘플 JSON 파일](https://github.com/bright-kr/Amazon-scraper/blob/main/output_data/amazon_bestsellers.json)을 다운로드하여 확인할 수 있습니다.
 
 ### Amazon Products by Category URL
 특정 카테고리 URL을 제공하여 Amazon 제품 데이터를 발견하고 수집합니다. 정렬 옵션과 위치 기반 필터로 검색을 사용자 지정할 수 있습니다.
 
-<img width="700" alt="bright-data-web-scraper-api-discover-by-category-url" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-discover-by-category-url.png">
+<img width="700" alt="bright-data-web-scraper-api-discover-by-category-url" src="https://github.com/bright-kr/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-discover-by-category-url.png">
 
 #### Key Input Parameters:
 | **Parameter** | **Type**  | **Description**                              | **Required** |
@@ -926,12 +926,12 @@ if __name__ == "__main__":
             store_data(data)
 ```
 
-전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_discover_by_category_url.json)을 다운로드하여 확인할 수 있습니다.
+전체 출력은 [이 샘플 JSON 파일](https://github.com/bright-kr/Amazon-scraper/blob/main/output_data/amazon_discover_by_category_url.json)을 다운로드하여 확인할 수 있습니다.
 
 ### Amazon Products by Keyword
 특정 키워드를 사용하여 제품을 발견합니다.
 
-<img width="700" alt="bright-data-web-scraper-api-discover-by-keyword" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-discover-by-keyword.png">
+<img width="700" alt="bright-data-web-scraper-api-discover-by-keyword" src="https://github.com/bright-kr/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-discover-by-keyword.png">
 
 #### Key Input Parameters:
 | **Parameter** | **Type**  | **Description**                   | **Required** |
@@ -1051,12 +1051,12 @@ if __name__ == "__main__":
             store_data(data)
 ```
 
-전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_keyword_data.json)을 다운로드하여 확인할 수 있습니다.
+전체 출력은 [이 샘플 JSON 파일](https://github.com/bright-kr/Amazon-scraper/blob/main/output_data/amazon_keyword_data.json)을 다운로드하여 확인할 수 있습니다.
 
 ### Amazon Products Global Dataset
 URL을 제공하여 주요 Amazon 도메인 전반에서 제품 데이터를 수집합니다.
 
-<img width="700" alt="bright-data-web-scraper-api-amazon-product-global-dataset" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-amazon-product-global-dataset.png">
+<img width="700" alt="bright-data-web-scraper-api-amazon-product-global-dataset" src="https://github.com/bright-kr/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-amazon-product-global-dataset.png">
 
 
 #### Key Input Parameters:
@@ -1214,12 +1214,12 @@ if __name__ == "__main__":
             store_data(data)
 ```
 
-전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_products_global_dataset.json)을 다운로드하여 확인할 수 있습니다.
+전체 출력은 [이 샘플 JSON 파일](https://github.com/bright-kr/Amazon-scraper/blob/main/output_data/amazon_products_global_dataset.json)을 다운로드하여 확인할 수 있습니다.
 
 ### Amazon Products Global Dataset - Discover by Category URL
 특정 카테고리 URL을 제공하여 제품을 발견합니다.
 
-<img width="700" alt="bright-data-web-scraper-api-amazon-product-global-category-url" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-amazon-product-global-category-url.png">
+<img width="700" alt="bright-data-web-scraper-api-amazon-product-global-category-url" src="https://github.com/bright-kr/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-amazon-product-global-category-url.png">
 
 
 #### Key Input Parameters:
@@ -1354,12 +1354,12 @@ if __name__ == "__main__":
         if data:
             store_data(data)
 ```
-전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_product_global_category_url.json)을 다운로드하여 확인할 수 있습니다.
+전체 출력은 [이 샘플 JSON 파일](https://github.com/bright-kr/Amazon-scraper/blob/main/output_data/amazon_product_global_category_url.json)을 다운로드하여 확인할 수 있습니다.
 
 ### Amazon Products Global Dataset - Discover by Keywords
 Amazon 도메인 전반에서 특정 키워드를 사용하여 제품을 발견합니다.
 
-<img width="700" alt="bright-data-web-scraper-api-amazon_global_dataset_by_keyword" src="https://github.com/luminati-io/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-amazon_global_dataset_by_keyword.png">
+<img width="700" alt="bright-data-web-scraper-api-amazon_global_dataset_by_keyword" src="https://github.com/bright-kr/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-amazon_global_dataset_by_keyword.png">
 
 #### Key Input Parameters:
 | **Parameter**      | **Type**   | **Description**                            | **Required** |
@@ -1511,4 +1511,4 @@ if __name__ == "__main__":
         if data:
             store_data(data)
 ```
-전체 출력은 [이 샘플 JSON 파일](https://github.com/luminati-io/Amazon-scraper/blob/main/output_data/amazon_global_dataset_by_keyword.json)을 다운로드하여 확인할 수 있습니다.
+전체 출력은 [이 샘플 JSON 파일](https://github.com/bright-kr/Amazon-scraper/blob/main/output_data/amazon_global_dataset_by_keyword.json)을 다운로드하여 확인할 수 있습니다.
