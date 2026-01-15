@@ -7,12 +7,12 @@
 - [무료 Amazon Scraper](#free-amazon-scraper)
    - [사전 요구 사항](#prerequisites)
    - [빠른 설정](#quick-setup)
-   - [Amazon 데이터를 スクレイピング하는 방법](#how-to-scrape-amazon-data)
+   - [Amazon 데이터를 스크레이핑하는 방법](#how-to-scrape-amazon-data)
    - [출력](#output)
-- [Amazon 데이터를 スクレイピング할 때의 과제](#challenges-when-scraping-amazon-data)
+- [Amazon 데이터를 스크레이핑할 때의 과제](#challenges-when-scraping-amazon-data)
 - [솔루션: Bright Data Amazon Scraper API](#solution-bright-data-amazon-scraper-api)
 - [Amazon Scraper API 실제 사용 예](#amazon-scraper-api-in-action)
-   - [API パラメータ로 데이터 수집 사용자 지정](#customize-data-collection-with-api-parameters)
+   - [API 매개변수로 데이터 수집 사용자 지정](#customize-data-collection-with-api-parameters)
    - [Amazon 제품 데이터](#amazon-product-data)
    - [Amazon 리뷰 데이터](#amazon-reviews-data)
    - [Amazon 제품 검색](#amazon-products-search)
@@ -20,9 +20,9 @@
    - [베스트셀러 기준 Amazon 제품](#amazon-products-by-best-sellers)
    - [카테고리 URL 기준 Amazon 제품](#amazon-products-by-category-url)
    - [키워드 기준 Amazon 제품](#amazon-products-by-keyword)
-   - [Amazon 제품 글로벌 データセット](#amazon-products-global-dataset)
-   - [Amazon 제품 글로벌 データセット - 카테고리 URL로 발견](#amazon-products-global-dataset---discover-by-category-url)
-   - [Amazon 제품 글로벌 データセット - 키워드로 발견](#amazon-products-global-dataset---discover-by-keywords)
+   - [Amazon 제품 글로벌 데이터셋](#amazon-products-global-dataset)
+   - [Amazon 제품 글로벌 데이터셋 - 카테고리 URL로 발견](#amazon-products-global-dataset---discover-by-category-url)
+   - [Amazon 제품 글로벌 데이터셋 - 키워드로 발견](#amazon-products-global-dataset---discover-by-keywords)
 
 
 ## Free Amazon Scraper
@@ -41,24 +41,24 @@
     ```
 
 ### How to Scrape Amazon Data
-Amazon 데이터를 スクレイピング하려면 검색 쿼리만 제공하면 됩니다. 또한 Amazon 도메인과 スクレイピング할 페이지 수를 지정할 수도 있습니다.
+Amazon 데이터를 스크레이핑하려면 검색 쿼리만 제공하면 됩니다. 또한 Amazon 도메인과 스크레이핑할 페이지 수를 지정할 수도 있습니다.
 
 #### Command:
 ```bash
 python main.py "<your_search_query>" --domain="<amazon_domain>" --pages=<number_of_pages>
 ```
 - `<your_search_query>`: 검색 키워드(예: "coffee maker").
-- `<amazon_domain>`: スクレイピング할 Amazon 도메인(기본값: Amazon US의 `com`).
-- `<number_of_pages>`: スクレイピング할 페이지 수(선택 사항이며, 기본값은 사용 가능한 모든 페이지를 スクレイピング합니다).
+- `<amazon_domain>`: 스크레이핑할 Amazon 도메인(기본값: Amazon US의 `com`).
+- `<number_of_pages>`: 스크레이핑할 페이지 수(선택 사항이며, 기본값은 사용 가능한 모든 페이지를 스크레이핑합니다).
 
 #### Example:
-Amazon US 도메인에서 "coffee maker" 데이터를 スクレイピング하고 결과의 처음 3페이지를 スクレイ핑하려면 다음 명령을 사용합니다.
+Amazon US 도메인에서 "coffee maker" 데이터를 스크레이핑하고 결과의 처음 3페이지를 スクレイ핑하려면 다음 명령을 사용합니다.
 명령은 다음과 같습니다:
 ```bash
 python main.py "coffee maker" --domain="com" --pages=3
 ```
 ### Output
-スクレイピング 후 추출된 데이터는 프로젝트 디렉터리에 `amazon_data.csv`로 저장됩니다. CSV 파일에는 다음 세부 정보가 포함됩니다:
+스크레이핑 후 추출된 데이터는 프로젝트 디렉터리에 `amazon_data.csv`로 저장됩니다. CSV 파일에는 다음 세부 정보가 포함됩니다:
 - **Name:** 제품 제목.
 - **Current Price:** 제품 가격(품절인 경우 비어 있음).
 - **Rating:** 평균 고객 평점.
@@ -71,22 +71,22 @@ python main.py "coffee maker" --domain="com" --pages=3
 <img width="700" alt="bright-data-amazon_csv_data" src="https://github.com/bright-kr/Amazon-scraper/blob/main/images/bright-data-amazon_csv_data.png">
 
 ## Challenges When Scraping Amazon Data
-Amazon 데이터를 スクレイピング하는 일은 항상 간단하지는 않습니다. 다음은 마주칠 수 있는 몇 가지 과제입니다:
-1. **고도화된 アンチボット 조치:** Amazon은 CAPTCHA, 보이지 않는 봇 탐지 기법, 행동 분석(예: 마우스 움직임 추적 등)을 사용하여 봇을 차단합니다.
+Amazon 데이터를 스크레이핑하는 일은 항상 간단하지는 않습니다. 다음은 마주칠 수 있는 몇 가지 과제입니다:
+1. **고도화된 안티봇 조치:** Amazon은 CAPTCHA, 보이지 않는 봇 탐지 기법, 행동 분석(예: 마우스 움직임 추적 등)을 사용하여 봇을 차단합니다.
 2. **빈번한 페이지 구조 업데이트:** Amazon은 HTML 구조, ID, class 이름을 자주 변경하므로 새로운 페이지 레이아웃에 맞추기 위해 スクレイ퍼를 정기적으로 업데이트해야 합니다.
-3. **높은 리소스 사용량:** Playwright 또는 Selenium 같은 도구로 JavaScript 비중이 큰 페이지를 スクレイピング하면 상당한 시스템 리소스를 소모할 수 있습니다. 동적 콘텐츠를 처리하고 여러 브라우저 인스턴스를 실행하면 특히 대량의 데이터를 スクレイピング할 때 성능이 저하될 수 있습니다.
+3. **높은 리소스 사용량:** Playwright 또는 Selenium 같은 도구로 JavaScript 비중이 큰 페이지를 스크레이핑하면 상당한 시스템 리소스를 소모할 수 있습니다. 동적 콘텐츠를 처리하고 여러 브라우저 인스턴스를 실행하면 특히 대량의 데이터를 스크레이핑할 때 성능이 저하될 수 있습니다.
 
-아래는 Amazon이 자동화된 スクレイピング 시도를 감지했을 때 발생하는 예시입니다:
+아래는 Amazon이 자동화된 스크레이핑 시도를 감지했을 때 발생하는 예시입니다:
 
 <img src="https://github.com/bright-kr/Amazon-scraper/blob/main/images/Amazon%20Blocked.png" alt="Amazon Blocked" width="700"/>
 
-위에서 보듯이 Amazon은 추가 데이터 スクレイピング을 방지하기 위해 리クレイスト를 차단했습니다. 이는 많은 スクレイ퍼가 겪는 일반적인 문제입니다.
+위에서 보듯이 Amazon은 추가 데이터 스크레이핑을 방지하기 위해 리クレイスト를 차단했습니다. 이는 많은 スクレイ퍼가 겪는 일반적인 문제입니다.
 
 ## Solution: Bright Data Amazon Scraper API
-[Bright Data Amazon Scraper API](https://brightdata.co.kr/products/web-scraper/amazon)는 대규모로 Amazon 제품 데이터를 スクレイピング하기 위한 궁극적인 솔루션입니다. 그 이유는 다음과 같습니다:
+[Bright Data Amazon Scraper API](https://brightdata.co.kr/products/web-scraper/amazon)는 대규모로 Amazon 제품 데이터를 스크레이핑하기 위한 궁극적인 솔루션입니다. 그 이유는 다음과 같습니다:
 
-- **インフラ 관리 불필요**: プロキシ 또는 언블로킹 시스템을 처리할 필요가 없습니다.
-- **ジオロケーション スクレイピング**: 어떤 지리적 지역에서도 スクレイピング할 수 있습니다.
+- **インフラ 관리 불필요**: 프록시 또는 언블로킹 시스템을 처리할 필요가 없습니다.
+- **지오로케이션 스크레이핑**: 어떤 지리적 지역에서도 스크레이핑할 수 있습니다.
 - **글로벌 IP 커버리지**: 99.99% 업타임으로 [195개 국가](https://brightdata.co.kr/locations)의 [7,200만 개 이상의 실제 사용자 IP](https://brightdata.co.kr/proxy-types/residential-proxies)에 액세스할 수 있습니다.
 - **유연한 데이터 전달**: Amazon S3, Google Cloud, Azure, Snowflake 또는 SFTP를 통해 JSON, NDJSON, CSV, `.gz` 등의 형식으로 데이터를 받을 수 있습니다.
 - **프라이버시 준수**: GDPR, CCPA 및 기타 데이터 보호 법률을 완전히 준수합니다.
@@ -100,7 +100,7 @@ Amazon 데이터를 スクレイピング하는 일은 항상 간단하지는 �
 
 ### Customize Data Collection with API Parameters
 
-다음 API パラメータ를 사용하여 데이터 수집을 사용자 지정할 수 있습니다:
+다음 API 매개변수를 사용하여 데이터 수집을 사용자 지정할 수 있습니다:
 
 | **Parameter**       | **Type**   | **Description**                                                                                   | **Example**                                           |
 |---------------------|------------|---------------------------------------------------------------------------------------------------|-------------------------------------------------------|
@@ -119,13 +119,13 @@ Amazon 데이터를 スクレイピング하는 일은 항상 간단하지는 �
 #### Key Input Parameters:
 | Parameter | Type   | Description                    | Required |
 |-----------|--------|--------------------------------|----------|
-| `url`       | `string` | 데이터를 スクレイピング할 Amazon 제품 URL | Yes      |
+| `url`       | `string` | 데이터를 스크레이핑할 Amazon 제품 URL | Yes      |
 
 #### Performance:
 - 입력당 평균 응답 시간: 13초
 
 #### Sample Output Data:
-Amazon 제품 데이터를 スクレイピング한 후 받게 되는 출력의 예시는 다음과 같습니다:
+Amazon 제품 데이터를 스크레이핑한 후 받게 되는 출력의 예시는 다음과 같습니다:
 ```json
 {
     "url": "https://www.amazon.com/KitchenAid-Protective-Dishwasher-Stainless-8-72-Inch/dp/B07PZF3QS3",
@@ -243,7 +243,7 @@ if __name__ == "__main__":
 전체 출력은 [이 샘플 JSON 파일](https://github.com/bright-kr/Amazon-scraper/blob/main/output_data/amazon_products_data.json)을 다운로드하여 확인할 수 있습니다.
 
 ### Amazon Reviews Data
-제품 URL과 함께 기간, 키워드, スクレイピング할 리뷰 수 같은 특정 パラメータ를 제공하여 Amazon 리뷰를 수집합니다.
+제품 URL과 함께 기간, 키워드, 스크레이핑할 리뷰 수 같은 특정 매개변수를 제공하여 Amazon 리뷰를 수집합니다.
 
 <img width="700" alt="bright-data-web-scraper-api-amazon-product-reviews" src="https://github.com/bright-kr/Amazon-scraper/blob/main/images/bright-data-web-scraper-api-amazon-product-reviews.png">
 
@@ -251,16 +251,16 @@ if __name__ == "__main__":
 #### Key Input Parameters:
 | **Parameter**       | **Type**  | **Description**                                                                 | **Required** |
 |---------------------|-----------|---------------------------------------------------------------------------------|--------------|
-| `url`               | `string`  | 리뷰를 スクレイピング할 Amazon 제품 URL입니다.                             | Yes          |
+| `url`               | `string`  | 리뷰를 스크레이핑할 Amazon 제품 URL입니다.                             | Yes          |
 | `days_range`        | `number`  | 리뷰 수집 시 고려할 과거 일수(제한이 없으면 비워 둡니다). | No           |
 | `keyword`           | `string`  | 특정 키워드로 리뷰를 필터링합니다.                            | No           |
-| `num_of_reviews`    | `number`  | スクレイピング할 리뷰 수(제공하지 않으면 사용 가능한 모든 리뷰를 スクレイピング합니다). | No           |
+| `num_of_reviews`    | `number`  | 스크레이핑할 리뷰 수(제공하지 않으면 사용 가능한 모든 리뷰를 스크레이핑합니다). | No           |
 
 #### Performance:
 - 입력당 평균 응답 시간: 1분 1초
 
 #### Sample Output Data:
-Amazon 리뷰를 スクレイピング할 때 받게 되는 출력의 예시는 다음과 같습니다:
+Amazon 리뷰를 스크레이핑할 때 받게 되는 출력의 예시는 다음과 같습니다:
 ```json
 {
     "url": "https://www.amazon.com/RORSOU-R10-Headphones-Microphone-Lightweight/dp/B094NC89P9/",
@@ -517,7 +517,7 @@ if __name__ == "__main__":
 - 입력당 평균 응답 시간: 1초
 
 #### Sample Output Data:
-판매자 정보를 スクレイピング한 후 받게 되는 출력의 예시는 다음과 같습니다:
+판매자 정보를 스크레이핑한 후 받게 되는 출력의 예시는 다음과 같습니다:
 ```json
 {
     "input": {
@@ -651,13 +651,13 @@ if __name__ == "__main__":
 
 | Parameter       | Type     | Description                                    | Required |
 |-----------------|----------|------------------------------------------------|----------|
-| `category_url`  | `string` | 데이터를 スクレイピング할 베스트셀러 카테고리 URL | Yes      |
+| `category_url`  | `string` | 데이터를 스크레이핑할 베스트셀러 카테고리 URL | Yes      |
 
 #### Performance:
 - 입력당 평균 응답 시간: 6분 49초
 
 #### Sample Output Data:
-Amazon의 베스트셀러 데이터를 スクレイピング한 후 받게 되는 출력 예시는 다음과 같습니다:
+Amazon의 베스트셀러 데이터를 스크레이핑한 후 받게 되는 출력 예시는 다음과 같습니다:
 
 ```json
 {
@@ -786,7 +786,7 @@ if __name__ == "__main__":
 #### Key Input Parameters:
 | **Parameter** | **Type**  | **Description**                              | **Required** |
 |---------------|-----------|----------------------------------------------|--------------|
-| `url`         | `string`  | 제품을 スクレイピング할 카테고리 URL      | Yes          |
+| `url`         | `string`  | 제품을 스크레이핑할 카테고리 URL      | Yes          |
 | `sort_by`     | `string`  | 제품 결과 정렬 기준      | No           |
 | `zipcode`     | `string`  | 위치별 제품 결과를 위한 우편번호| No           |
 
@@ -794,7 +794,7 @@ if __name__ == "__main__":
 - 입력당 평균 응답 시간: 16분 16초
 
 #### Sample Output Data:
-지정한 카테고리에서 제품을 スクレイピング한 후 받게 되는 데이터 예시는 다음과 같습니다:
+지정한 카테고리에서 제품을 스크레이핑한 후 받게 되는 데이터 예시는 다음과 같습니다:
 ```json
 {
     "title": "Quilted Makeup Bag Floral Makeup Bag Cotton Makeup Bag",
@@ -1225,7 +1225,7 @@ if __name__ == "__main__":
 #### Key Input Parameters:
 | **Parameter** | **Type** | **Description**                               | **Required** |
 |---------------|----------|-----------------------------------------------|--------------|
-| `url`         | `string` | 제품을 スクレイピング할 카테고리 URL | Yes          |
+| `url`         | `string` | 제품을 스크레이핑할 카테고리 URL | Yes          |
 | `sort_by`     | `string` |Criteria for sorting the results               | No           |
 | `zipcode`     | `string` | 위치별 결과를 위한 우편번호         | No           |
 
